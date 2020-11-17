@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 19:22:18 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/11/11 19:26:56 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/11/17 18:08:52 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static t_data_ways	*go_search_way(t_data *data_lim, t_data_ways *data_ways, \
 	i = search_count_way(data_lim);
 	while (i > 0)
 	{
-		bellamna_ford(data_lim->rooms, data_lim->links);
+		bellmana_ford(data_lim->links);
 		data_ways->way = save_way(data_lim->rooms);
 		if (data_ways->way == NULL)
 			break ;

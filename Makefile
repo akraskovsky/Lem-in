@@ -6,47 +6,59 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/04 15:27:16 by tvanessa          #+#    #+#              #
-#    Updated: 2020/11/14 16:44:53 by fprovolo         ###   ########.fr        #
+#    Updated: 2020/11/17 18:08:58 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-S = 
-SS = $(S)lem_in.c \
-	$(S)get_data_input.c \
-	$(S)new_data_inputlist.c \
-	$(S)new_ways.c \
-	$(S)parse_data.c \
-	$(S)parse_links.c \
-	$(S)bellam_ford.c \
-	$(S)save_way.c \
-	$(S)base_setting.c \
-	$(S)run_lim_run.c \
-	$(S)clean_data.c \
-	$(S)tools.c \
-	$(S)go_help.c
-
-H = -I libft/includes -I libft/ -I .
 NAME = lem-in
+S = 
+SS = $(S)lem_in \
+	$(S)get_data_input \
+	$(S)new_data_inputlist \
+	$(S)new_ways \
+	$(S)parse_data \
+	$(S)parse_links \
+	$(S)bellma_ford \
+	$(S)save_way \
+	$(S)base_setting \
+	$(S)run_lim_run \
+	$(S)clean_data \
+	$(S)tools \
+	$(S)go_help
+
+LFT_PATH = ./libft/
+LIBFT = $(LFT_PATH)libft.a
+OBJ_PATH = ./objects/
+SRC = $(addsuffix .c, $(SS)))
+OBJ = $(addprefix $(OBJ_PATH), $(addsuffix .o, $(SS)))
+
+H = -I $(LFT_PATH)includes -I $(LFT_PATH) -I .
 CC = clang
 CF = -g -Wall -Wextra -Werror
 
+
+.PHONY: all clean fclean re
+
 all: $(NAME)
 
-%.o: %.c push_swap.h
-	$(CC) $(CF) $(H) -c -o $@ $<
+$(NAME): $(LIBFT) $(OBJ_PATH) $(OBJ)
+	$(CC) $(CF) $(H) -o $(NAME) $(OBJ) -L$(LFT_PATH) -lft
 
-$(NAME): libbuild $(SS:.c=.o)
-	$(CC) $(CF) $(H) -o $(NAME) $(SS:.c=.o) -L libft/ -lft
+$(LIBFT): $(LFT_PATH)*.c $(LFT_PATH)*.h
+	make -C $(LFT_PATH)
 
-libbuild:
-	make -C libft/ 
+$(OBJ_PATH):
+	mkdir -p $(OBJ_PATH)
+
+$(OBJ_PATH)%.o: %.c lem_in.h
+	$(CC) $(CF) $(H) -c $< -o $@ 
 
 clean:
-	make -C libft/ clean 
-	/bin/rm -f $(SS:.c=.o)
+	rm -rf $(OBJ_PATH)
+	make -C $(LFT_PATH) clean
 
 fclean: clean
-	make -C libft/ fclean 
 	/bin/rm -f $(NAME)
+	make -C $(LFT_PATH) fclean
 
 re: fclean all
