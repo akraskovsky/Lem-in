@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 22:23:32 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/11/17 18:08:54 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/11/20 18:07:53 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,6 @@ void						clean_way(t_ways *way);
 void						start_end(t_ways *ways_tm, t_flags *flags);
 void						go_end(t_ways *ways_tm, t_flags *flags);
 void						go_out_start(t_ways *ways_tm, t_flags *flags);
-void		    			clean_data_input(t_data_input *data_input);
+void						clean_data_input(t_data_input *data_input);
 
 #endif
