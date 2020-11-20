@@ -6,13 +6,13 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 18:36:12 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/11/14 16:25:09 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/11/17 18:09:05 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void			bellamna_ford(t_data_room *rooms, t_data_link *links)
+void			bellmana_ford(t_data_link *links)
 {
 	t_data_link		*links_tmp;
 	int				change;

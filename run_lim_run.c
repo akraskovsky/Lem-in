@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 22:26:43 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/11/14 16:38:13 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/11/17 17:41:14 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int		is_go(t_data_ways *data_ways, int count_lim)
 		return (0);
 }
 
-static void		go_middle(t_ways *ways_tm, t_flags *flags)
+static void		go_middle(t_ways *ways_tm)
 {
 	ways_tm->lim = 1;
 	ways_tm->name_lim = ways_tm->way->name_lim;
@@ -71,7 +71,7 @@ static void		route_lims(t_flags f, t_data_ways *d_way,
 						((d_way->first_way == 1) || is_go(d_way, f.lim_start)))
 					go_out_start(way_m, &f);
 				else if (way_m->way->lim == 1)
-					go_middle(way_m, &f);
+					go_middle(way_m);
 				way_m = way_m->way;
 			}
 			d_way = d_way->next_way;
@@ -87,6 +87,7 @@ void			run_lim_run(int count_lim, t_data_ways *data_ways)
 	t_ways			*ways_tm;
 	t_flags			flags;
 
+	ways_tm = NULL;
 	flags.count_lim = count_lim;
 	data_ways_tm = data_ways;
 	flags.lim_end = 0;

@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 22:23:32 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/11/14 21:09:44 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/11/20 18:07:53 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,7 @@ t_data						*parse_data(t_data_input *data_input);
 t_data_room					*new_data_roomlist(void);
 t_data_link					*new_data_linklist(void);
 t_data						*new_datalist(void);
-void						bellamna_ford(t_data_room *rooms, \
-							t_data_link *links);
+void						bellmana_ford(t_data_link *links);
 t_data_ways					*new_ways_datalist(void);
 t_ways						*new_wayslist(void);
 t_ways						*save_way(t_data_room *rooms);
