@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 19:22:18 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/11/17 18:08:52 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/11/21 20:41:07 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int					main(void)
 		ft_printf("\n");
 	}
 	else
-		ft_printf("ERROR");
+		ft_printf("ERROR\nno possible solution with this map\n");
 	clean_datalists(data_lim, data_input, data_ways);
 	return (0);
 }
